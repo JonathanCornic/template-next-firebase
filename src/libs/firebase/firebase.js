@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -12,8 +12,14 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
+/** @description Init firbase services
+ * https://firebase.google.com/docs/web/setup?hl=fr#add-sdks-initialize
+ * https://firebase.google.com/docs/firestore/quickstart?hl=fr#initialize
+ * https://firebase.google.com/docs/storage/web/start?hl=fr#add-bucket-url
+ * https://firebase.google.com/docs/auth/web/start?hl=fr#add-initialize-sdk
+ */
+
 export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(firebaseApp);
-export const db = getFirestore(firebaseApp);
-export const storage = getStorage(firebaseApp);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+export const storage = getStorage(app);

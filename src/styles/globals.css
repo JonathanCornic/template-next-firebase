@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/** 
+ * @description Use :root, for init your globals css variables and config your tailwind, 
+ * https://tailwindcss.com/docs/customizing-colors#using-css-variables
+ */
+
+@layer base {
+  :root {
+    --background: 0 0% 0%; /* noir */
+    --foreground: 0 0% 100%; /* blanc */
+    --primary: 0 0% 0%; /* noir */
+    --primary-foreground: 0 0% 100%; /* blanc */
+    --secondary: 0 0% 100%; /* blanc */
+    --secondary-foreground: 0 0% 0%; /* noir */
+    --destructive: 0 100% 50%; /* rouge */
+    --destructive-foreground: 0 0% 100%; /* blanc */
+    --success: 120 100% 25%; /* vert */
+    --success-foreground: 0 0% 100%; /* blanc */
+    --alert: 60 100% 50%; /* jaune */
+    --alert-foreground: 0 0% 0%; /* noir */
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
