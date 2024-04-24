@@ -15,16 +15,27 @@
     --primary-foreground: 0 0% 100%; /* blanc */
     --secondary: 0 0% 100%; /* blanc */
     --secondary-foreground: 0 0% 0%; /* noir */
+    --card: 0 0% 0%; /* noir */
+    --card-foreground: 0 0% 100%; /* blanc */
+    --popover: 0 0% 100%; /* blanc */
+    --popover-foreground: 0 0% 50%; /* gris */
+    --muted: 0 0% 50%; /* gris */
+    --muted-foreground: 0 0% 100%; /* blanc */
+    --accent: 0 0% 0%; /* noir */
+    --accent-foreground: 0 0% 100%; /* blanc */
     --destructive: 0 100% 50%; /* rouge */
     --destructive-foreground: 0 0% 100%; /* blanc */
-    --success: 120 100% 25%; /* vert */
-    --success-foreground: 0 0% 100%; /* blanc */
-    --alert: 60 100% 50%; /* jaune */
-    --alert-foreground: 0 0% 0%; /* noir */
+    --border: 0 0% 50%; /* gris */
+    --input: 0 0% 50%; /* gris */
+    --ring: 0 0% 50%; /* gris */
+    --radius: 0.5rem;
   }
 }
 
 @layer base {
+  * {
+    @apply border-border;
+  }
   body {
     @apply bg-background text-foreground;
   }
