@@ -9,25 +9,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%; /* noir */
-    --foreground: 0 0% 100%; /* blanc */
-    --primary: 0 0% 0%; /* noir */
-    --primary-foreground: 0 0% 100%; /* blanc */
-    --secondary: 0 0% 100%; /* blanc */
-    --secondary-foreground: 0 0% 0%; /* noir */
-    --card: 0 0% 0%; /* noir */
-    --card-foreground: 0 0% 100%; /* blanc */
-    --popover: 0 0% 100%; /* blanc */
-    --popover-foreground: 0 0% 50%; /* gris */
-    --muted: 0 0% 50%; /* gris */
-    --muted-foreground: 0 0% 100%; /* blanc */
-    --accent: 0 0% 0%; /* noir */
-    --accent-foreground: 0 0% 100%; /* blanc */
-    --destructive: 0 100% 50%; /* rouge */
-    --destructive-foreground: 0 0% 100%; /* blanc */
-    --border: 0 0% 50%; /* gris */
-    --input: 0 0% 50%; /* gris */
-    --ring: 0 0% 50%; /* gris */
+    --background: #000000;
+    --foreground: #ffffff;
+    --primary: #000000;
+    --primary-foreground: #ffffff;
+    --secondary: #ffffff;
+    --secondary-foreground: #000000;
+    --card: #000000;
+    --card-foreground: #ffffff;
+    --popover: #ffffff;
+    --popover-foreground: #808080;
+    --muted: #808080;
+    --muted-foreground: #ffffff;
+    --accent: #000000;
+    --accent-foreground: #ffffff;
+    --destructive: #410404;
+    --destructive-foreground: #ffffff;
+    --border: #808080;
+    --input: #808080;
+    --ring: #808080;
     --radius: 0.5rem;
   }
 }

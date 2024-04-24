@@ -5,14 +5,14 @@ import { usePathname } from "next/navigation";
 
 interface Props {
   item: LinkType;
-  onclick?: () => void;
+  onClick?: (() => void);
 }
-export default function Navlink({ item, onclick }: Props) {
+export default function Navlink({ item, onClick }: Props) {
   const path = usePathname();
 
   return (
     <Link
-      onClick={onclick}
+      onClick={onClick}
       href={item.path}
       className={clsx(
         path === item.path && "text-popover-foreground",

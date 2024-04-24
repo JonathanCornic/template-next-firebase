@@ -13,6 +13,12 @@ export const appLinks = {
       path: "/about",
     },
     {
+      title: "Galerie",
+      path: "/galery",
+    },
+  ],
+  admin: [
+    {
       title: "Tableau de bord",
       path: "/dashboard",
     },

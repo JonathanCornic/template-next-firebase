@@ -2,7 +2,7 @@
 import { appLinks } from "@/config/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import Navlink from "./navlink/navlink";
+import { NavMenu } from "./nav-menu/nav-menu";
 
 export default function Navbar() {
   const [open, setOpen] = useState<boolean>(false);
@@ -11,67 +11,40 @@ export default function Navbar() {
   const session = true;
   const isAdmin = true;
 
+  const toggleOpen = () => setOpen((prev) => !prev);
+
   return (
     <>
       <nav className="flex items-center justify-between p-5 border-b">
         <Link href="/">LogoApp</Link>
-        <div className="flex space-x-3 max-md:hidden">
-          <div className="space-x-3">
-            {appLinks.mainNav.map(
-              (link) =>
-                // Utilisateur admin
-                (link.title !== "Tableau de bord" || (isAdmin && session)) && (
-                  <Navlink item={link} key={link.title} />
-                )
-            )}
-          </div>
-          <div className="border-x"></div>
-          <div className="space-x-3">
-            {session ? ( // verif session
-              <button>Deconnexion</button>
-            ) : (
-              appLinks.auth.map((link) => (
-                <Navlink item={link} key={link.title} />
-              ))
-            )}
-          </div>
+        <div className="flex items-center space-x-3 max-md:hidden">
+          <NavMenu links={appLinks.mainNav} />
+          <NavMenu links={appLinks.admin} session={session} isAdmin={isAdmin} />
+
+          <div className="border-r h-8"></div>
+
+          {session ? (
+            <button className="px-2 bg-destructive rounded">Deconnexion</button>
+          ) : (
+            <NavMenu links={appLinks.auth} />
+          )}
         </div>
-        <button
-          onClick={() => setOpen((prev) => !prev)}
-          className="md:hidden block"
-        >
+        <button onClick={toggleOpen} className="md:hidden block">
           MenuLogo
         </button>
       </nav>
       {open && (
         <nav className="flex flex-col justify-center items-center h-screen w-full fixed right-0 top-0 bg-background space-y-3 md:hidden">
-          {appLinks.mainNav.map(
-            (link) =>
-              (link.title !== "Tableau de bord" || (isAdmin && session)) && ( // Utilisateur admin
-                <Navlink
-                  onclick={
-                    link.path !== "/dashboard"
-                      ? () => setOpen((prev) => !prev)
-                      : () => {
-                          return;
-                        }
-                  }
-                  item={link}
-                  key={link.title}
-                />
-              )
-          )}
-          {session ? ( //verif session
-            <button>Deconnexion</button>
+          <NavMenu links={appLinks.mainNav} onClick={toggleOpen} />
+          <NavMenu links={appLinks.admin} session={session} isAdmin={isAdmin} />
+
+          {session ? (
+            <button className="px-2 bg-destructive rounded">Deconnexion</button>
           ) : (
-            appLinks.auth.map((link) => (
-              <Navlink item={link} key={link.title} />
-            ))
+            <NavMenu links={appLinks.auth} />
           )}
-          <button
-            onClick={() => setOpen((prev) => !prev)}
-            className="absolute top-5 right-10"
-          >
+
+          <button onClick={toggleOpen} className="absolute top-5 right-10">
             X
           </button>
         </nav>
