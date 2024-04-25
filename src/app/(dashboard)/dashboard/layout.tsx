@@ -1,12 +1,14 @@
+import SideNav from "@/components/sidenav/sidenav";
+
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <section>
-      Dashboard Layout
-      <div>{children}</div>
-    </section>
+    <>
+      <SideNav/>
+      <main className="ml-64">{children}</main>
+    </>
   );
 }

@@ -1,11 +1,12 @@
 "use client";
+import { LinkType } from "@/types/links";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface Props {
   item: LinkType;
-  onClick?: (() => void);
+  onClick?: () => void;
 }
 export default function Navlink({ item, onClick }: Props) {
   const path = usePathname();

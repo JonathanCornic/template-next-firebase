@@ -2,6 +2,7 @@
 import { appLinks } from "@/config/navigation";
 import Link from "next/link";
 import { useState } from "react";
+import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import { NavMenu } from "./nav-menu/nav-menu";
 
 export default function Navbar() {
@@ -15,7 +16,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center justify-between p-5 border-b">
+      <nav className="flex items-center justify-between px-5 border-b min-h-16">
         <Link href="/">LogoApp</Link>
         <div className="flex items-center space-x-3 max-md:hidden">
           <NavMenu links={appLinks.mainNav} />
@@ -30,7 +31,7 @@ export default function Navbar() {
           )}
         </div>
         <button onClick={toggleOpen} className="md:hidden block">
-          MenuLogo
+          <RxHamburgerMenu className="size-5" />
         </button>
       </nav>
       {open && (
@@ -45,7 +46,7 @@ export default function Navbar() {
           )}
 
           <button onClick={toggleOpen} className="absolute top-5 right-10">
-            X
+            <RxCross2 className="size-5" />
           </button>
         </nav>
       )}
